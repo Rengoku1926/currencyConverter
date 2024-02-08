@@ -7,7 +7,7 @@ function InputBox({
     onAmountChange,                     //function to show amount to change
     onCurrencyChange,                   //function to return the converted amount 
     currencyOptions=[],                 //shows all available currency
-    selectCurrency="usd",               //stores a selected currecy
+    selectCurrency="",               //stores a selected currecy
     amountDisable=false,
     currencyDisable=false,
     className=""                        //stores userDefined css

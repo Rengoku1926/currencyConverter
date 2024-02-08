@@ -4,10 +4,10 @@ import useCurrencyInfo from './hooks/useCurrencyInfo'
 
 function App() {
   
-  const[amount, setAmount] = useState(0)
+  const[amount, setAmount] = useState()
   const[from, setFrom] = useState("inr")
   const[to, setTo] = useState("usd")
-  const[convertedAmount, setConvertedAmount] = useState(0)
+  const[convertedAmount, setConvertedAmount] = useState()
 
   const currencyInfo = useCurrencyInfo(from)
 
@@ -16,8 +16,13 @@ function App() {
   const swap= ()=>{
     setFrom(to)
     setTo(from)
-    setConvertedAmount(amount)
-    setAmount(convertedAmount)
+    setAmount(amount)
+    setConvertedAmount(convert)
+
+    // setFrom(to)
+    // setTo(from)
+    // setConvertedAmount(amount)
+    // setAmount(convertedAmount)
   }
 
   const convert=() => {
@@ -28,7 +33,7 @@ function App() {
     <div
         className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
         style={{
-            backgroundImage: `url('https://images.pexels.com/photos/3532540/pexels-photo-3532540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')`,
+            backgroundImage: `url('https://images.pexels.com/photos/318820/pexels-photo-318820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`,
         }}
     >
         <div className="w-full">
@@ -64,7 +69,7 @@ function App() {
                             amount={convertedAmount}
                             currencyOptions={options}
                             onCurrencyChange={(currency) => setTo(currency)}
-                            selectCurrency={from}
+                            selectCurrency={to}
                             amountDisable
                         />
                     </div>
